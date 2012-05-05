@@ -3,6 +3,7 @@ using System;
 using System.Text;
 using System.Collections;
 using System.Collections.Generic;
+using System.Web;
 
 public class Facebook : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class Facebook : MonoBehaviour
 	/// <param name="args">The Query arguments</param>
 	/// <param name="postArgs">The POST arguments</param>
 	/// <returns>A JObject of the facebook response</returns>
-	private IEnumerable SendRequest (string path, Dictionary<string, string> args, Dictionary<string, string> postArgs)
+	private HTTP.Request SendRequest (string path, Dictionary<string, string> args, Dictionary<string, string> postArgs)
 	{
 		if (!isLogined) {
 			throw new FacebookGraphAPIException ("not logined", "Login to perform action");
@@ -51,12 +52,7 @@ public class Facebook : MonoBehaviour
 			request.Text = EncodeDictionary (postArgs);
 		}
 		
-		request.Send ();
-		while (!request.isDone) {
-			yield return null;
-		}
-		
-		string result = request.response == null ? null : request.response.Text;
+		return request;
 	}
 
 	/// <summary>
@@ -85,6 +81,7 @@ public class Facebook : MonoBehaviour
 				accessToken = tokenArray[1];
 			}
 		}
+		Debug.Log(userId + " " + accessToken);
 	}
 
 	private bool isLogined = false;

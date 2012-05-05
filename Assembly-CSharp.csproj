@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
 	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-	<ProductVersion>9.0.21022</ProductVersion>
+	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{0EFF4CF4-16BD-1664-8DD2-659655287068}</ProjectGuid>
+	<ProjectGuid>{C396CBFC-3B0F-F315-207E-684934A2A4BF}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_3_4_2;UNITY_3_4;UNITY_EDITOR;ENABLE_PROFILER;UNITY_STANDALONE_OSX;ENABLE_GENERICS;ENABLE_DUCK_TYPING;ENABLE_TERRAIN;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_3_5_0;UNITY_3_5;UNITY_EDITOR;ENABLE_PROFILER;UNITY_IOS;UNITY_IPHONE;ENABLE_GENERICS;ENABLE_TERRAIN;ENABLE_WEBCAM;ENABLE_MICROPHONE;ENABLE_NETWORK;ENABLE_CLOTH;ENABLE_WWW</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,13 +46,17 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\API\Facebook.cs" />
      <Compile Include="Assets\Scripts\API\FacebookGraphAPIException.cs" />
+     <Compile Include="Assets\Scripts\Helpers\AsyncJob\Job.cs" />
+     <Compile Include="Assets\Scripts\Helpers\AsyncJob\JobManager.cs" />
      <Compile Include="Assets\Scripts\Helpers\HTTP\Request.cs" />
      <Compile Include="Assets\Scripts\Helpers\HTTP\Response.cs" />
+     <Compile Include="Assets\Scripts\Helpers\MiniJSON.cs" />
      <Compile Include="Assets\Scripts\Helpers\SocketServer.cs" />
      <Compile Include="Assets\Scripts\Login\AndroidLogin.cs" />
      <Compile Include="Assets\Scripts\Login\FacebookLogin.cs" />
      <Compile Include="Assets\Scripts\Login\IOSHelper.cs" />
      <Compile Include="Assets\Scripts\Login\IOSLogin.cs" />
+     <Compile Include="Assets\Scripts\Main.cs" />
      <None Include="Assets\Plugins\Android\res\values\strings.xml" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Plugins\Android\res\layout\main.xml" />
@@ -60,9 +64,28 @@
  <Reference Include="Assets\Plugins\Ionic.Zlib">
  <HintPath>Assets\Plugins\Ionic.Zlib.dll</HintPath>
  </Reference>
- <Reference Include="Assets\Plugins\Newtonsoft.Json">
- <HintPath>Assets\Plugins\Newtonsoft.Json.dll</HintPath>
+ <Reference Include="Assets\Plugins\Mono.Web">
+ <HintPath>Assets\Plugins\Mono.Web.dll</HintPath>
  </Reference>
+ <Reference Include="Assets\Plugins\System.Configuration">
+ <HintPath>Assets\Plugins\System.Configuration.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Plugins\System.Drawing">
+ <HintPath>Assets\Plugins\System.Drawing.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Plugins\System.EnterpriseServices">
+ <HintPath>Assets\Plugins\System.EnterpriseServices.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Plugins\System.Security">
+ <HintPath>Assets\Plugins\System.Security.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\Plugins\System.Web">
+ <HintPath>Assets\Plugins\System.Web.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{429B5420-6DF3-C10A-4B6A-ED243A305F31}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -74,4 +97,3 @@
   -->
   
 </Project>
-	
